@@ -439,8 +439,8 @@ def plot_kernel_activations(model, sample_input, layer_name="primeira conv"):
         ax.axis("off")
 
     plt.tight_layout()
-    plt.savefig("activations.png")
-    print("Gráfico de ativações salvo em: activations.png")
+    plt.savefig(f"activations_{layer_name.replace(' ', '_')}.png")
+    print(f"Gráfico de ativações salvo em: activations_{layer_name.replace(' ', '_')}.png")
     plt.close()
 
 
@@ -483,8 +483,8 @@ def plot_conv_weights(model, layer_name="Pesos dos Kernels"):
         ax.axis("off")
 
     plt.tight_layout()
-    plt.savefig("weights.png")
-    print("Gráfico de comparação salvo em: weights.png")
+    plt.savefig(f"weights_{layer_name.replace(' ', '_')}.png")
+    print(f"Gráfico de comparação salvo em: weights_{layer_name.replace(' ', '_')}.png")
     plt.close()
 
 # =============================================================================

@@ -1,0 +1,158 @@
+Usando dispositivo: cuda
+
+=================================================================
+  EXPERIMENTO 1: CNN Custom — MNIST
+=================================================================
+CNN_MNIST(
+  (features): Sequential(
+    (0): Conv2d(1, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): ReLU()
+    (2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (3): Dropout2d(p=0.25, inplace=False)
+    (4): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (5): ReLU()
+    (6): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (7): Dropout2d(p=0.25, inplace=False)
+  )
+  (classifier): Sequential(
+    (0): Flatten(start_dim=1, end_dim=-1)
+    (1): Linear(in_features=3136, out_features=128, bias=True)
+    (2): ReLU()
+    (3): Dropout(p=0.5, inplace=False)
+    (4): Linear(in_features=128, out_features=10, bias=True)
+  )
+)
+[CNN-MNIST] Época 01/15 | Loss Treino: 0.2685 | Acc Treino: 91.87% | Loss Teste: 0.0478 | Acc Teste: 98.47%
+  ✔ Nova melhor acurácia: 98.47% — pesos salvos.
+[CNN-MNIST] Época 02/15 | Loss Treino: 0.1063 | Acc Treino: 96.98% | Loss Teste: 0.0340 | Acc Teste: 98.84%
+  ✔ Nova melhor acurácia: 98.84% — pesos salvos.
+[CNN-MNIST] Época 03/15 | Loss Treino: 0.0851 | Acc Treino: 97.54% | Loss Teste: 0.0284 | Acc Teste: 99.08%
+  ✔ Nova melhor acurácia: 99.08% — pesos salvos.
+[CNN-MNIST] Época 04/15 | Loss Treino: 0.0710 | Acc Treino: 97.84% | Loss Teste: 0.0289 | Acc Teste: 98.97%
+  ✘ Sem melhora (1/3). Melhor: 99.08%
+[CNN-MNIST] Época 05/15 | Loss Treino: 0.0657 | Acc Treino: 98.00% | Loss Teste: 0.0277 | Acc Teste: 99.02%
+  ✘ Sem melhora (2/3). Melhor: 99.08%
+[CNN-MNIST] Época 06/15 | Loss Treino: 0.0492 | Acc Treino: 98.55% | Loss Teste: 0.0211 | Acc Teste: 99.28%
+  ✔ Nova melhor acurácia: 99.28% — pesos salvos.
+[CNN-MNIST] Época 07/15 | Loss Treino: 0.0443 | Acc Treino: 98.65% | Loss Teste: 0.0225 | Acc Teste: 99.25%
+  ✘ Sem melhora (1/3). Melhor: 99.28%
+[CNN-MNIST] Época 08/15 | Loss Treino: 0.0411 | Acc Treino: 98.74% | Loss Teste: 0.0197 | Acc Teste: 99.32%
+  ✔ Nova melhor acurácia: 99.32% — pesos salvos.
+[CNN-MNIST] Época 09/15 | Loss Treino: 0.0392 | Acc Treino: 98.81% | Loss Teste: 0.0210 | Acc Teste: 99.35%
+  ✔ Nova melhor acurácia: 99.35% — pesos salvos.
+[CNN-MNIST] Época 10/15 | Loss Treino: 0.0380 | Acc Treino: 98.84% | Loss Teste: 0.0217 | Acc Teste: 99.36%
+  ✘ Sem melhora (1/3). Melhor: 99.35%
+[CNN-MNIST] Época 11/15 | Loss Treino: 0.0305 | Acc Treino: 99.04% | Loss Teste: 0.0206 | Acc Teste: 99.33%
+  ✘ Sem melhora (2/3). Melhor: 99.35%
+[CNN-MNIST] Época 12/15 | Loss Treino: 0.0279 | Acc Treino: 99.16% | Loss Teste: 0.0201 | Acc Teste: 99.29%
+  ✘ Sem melhora (3/3). Melhor: 99.35%
+
+⛔ Early stopping na época 12. Restaurando melhores pesos.
+Plot salvo em: history_CNN_Custom__MNIST.png
+Gráfico de ativações salvo em: activations_1ª_Conv_(MNIST).png
+Gráfico de comparação salvo em: weights_Pesos_dos_Filtros_—_CNN_MNIST.png
+
+=================================================================
+  EXPERIMENTO 2: CNN Custom — CIFAR-10
+=================================================================
+CNN_CIFAR10(
+  (features): Sequential(
+    (0): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (1): BatchNorm2d(32, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (4): Dropout2d(p=0.3, inplace=False)
+    (5): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (6): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (7): ReLU()
+    (8): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (9): Dropout2d(p=0.3, inplace=False)
+    (10): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (11): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (12): ReLU()
+    (13): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+    (14): Dropout2d(p=0.3, inplace=False)
+  )
+  (classifier): Sequential(
+    (0): Flatten(start_dim=1, end_dim=-1)
+    (1): Linear(in_features=2048, out_features=256, bias=True)
+    (2): ReLU()
+    (3): Dropout(p=0.5, inplace=False)
+    (4): Linear(in_features=256, out_features=10, bias=True)
+  )
+)
+[CNN-CIFAR10] Época 01/15 | Loss Treino: 1.8803 | Acc Treino: 29.94% | Loss Teste: 1.4958 | Acc Teste: 46.06%
+  ✔ Nova melhor acurácia: 46.06% — pesos salvos.
+[CNN-CIFAR10] Época 02/15 | Loss Treino: 1.6991 | Acc Treino: 37.18% | Loss Teste: 1.3254 | Acc Teste: 50.88%
+  ✔ Nova melhor acurácia: 50.88% — pesos salvos.
+[CNN-CIFAR10] Época 03/15 | Loss Treino: 1.6100 | Acc Treino: 40.61% | Loss Teste: 1.2460 | Acc Teste: 54.68%
+  ✔ Nova melhor acurácia: 54.68% — pesos salvos.
+[CNN-CIFAR10] Época 04/15 | Loss Treino: 1.5423 | Acc Treino: 43.49% | Loss Teste: 1.1969 | Acc Teste: 55.61%
+  ✔ Nova melhor acurácia: 55.61% — pesos salvos.
+[CNN-CIFAR10] Época 05/15 | Loss Treino: 1.4856 | Acc Treino: 45.87% | Loss Teste: 1.1303 | Acc Teste: 58.55%
+  ✔ Nova melhor acurácia: 58.55% — pesos salvos.
+[CNN-CIFAR10] Época 06/15 | Loss Treino: 1.4103 | Acc Treino: 49.09% | Loss Teste: 1.0607 | Acc Teste: 60.89%
+  ✔ Nova melhor acurácia: 60.89% — pesos salvos.
+[CNN-CIFAR10] Época 07/15 | Loss Treino: 1.3839 | Acc Treino: 50.20% | Loss Teste: 1.0451 | Acc Teste: 62.17%
+  ✔ Nova melhor acurácia: 62.17% — pesos salvos.
+[CNN-CIFAR10] Época 08/15 | Loss Treino: 1.3529 | Acc Treino: 51.48% | Loss Teste: 1.0179 | Acc Teste: 63.19%
+  ✔ Nova melhor acurácia: 63.19% — pesos salvos.
+[CNN-CIFAR10] Época 09/15 | Loss Treino: 1.3323 | Acc Treino: 52.25% | Loss Teste: 1.0018 | Acc Teste: 64.07%
+  ✔ Nova melhor acurácia: 64.07% — pesos salvos.
+[CNN-CIFAR10] Época 10/15 | Loss Treino: 1.3125 | Acc Treino: 53.03% | Loss Teste: 0.9661 | Acc Teste: 65.20%
+  ✔ Nova melhor acurácia: 65.20% — pesos salvos.
+[CNN-CIFAR10] Época 11/15 | Loss Treino: 1.2670 | Acc Treino: 54.73% | Loss Teste: 0.9381 | Acc Teste: 65.88%
+  ✔ Nova melhor acurácia: 65.88% — pesos salvos.
+[CNN-CIFAR10] Época 12/15 | Loss Treino: 1.2519 | Acc Treino: 55.27% | Loss Teste: 0.9349 | Acc Teste: 66.72%
+  ✔ Nova melhor acurácia: 66.72% — pesos salvos.
+[CNN-CIFAR10] Época 13/15 | Loss Treino: 1.2294 | Acc Treino: 56.45% | Loss Teste: 0.8980 | Acc Teste: 68.12%
+  ✔ Nova melhor acurácia: 68.12% — pesos salvos.
+[CNN-CIFAR10] Época 14/15 | Loss Treino: 1.2171 | Acc Treino: 56.67% | Loss Teste: 0.9068 | Acc Teste: 67.74%
+  ✘ Sem melhora (1/3). Melhor: 68.12%
+[CNN-CIFAR10] Época 15/15 | Loss Treino: 1.2048 | Acc Treino: 57.10% | Loss Teste: 0.8783 | Acc Teste: 68.89%
+  ✔ Nova melhor acurácia: 68.89% — pesos salvos.
+Plot salvo em: history_CNN_Custom__CIFAR-10.png
+Gráfico de ativações salvo em: activations_1ª_Conv_(CIFAR-10).png
+Gráfico de comparação salvo em: weights_Pesos_dos_Filtros_—_CNN_CIFAR-10.png
+
+=================================================================
+  EXPERIMENTO 3: ResNet50 (fine-tuning) — MNIST
+=================================================================
+[ResNet50-MNIST] Época 01/5 | Loss Treino: 0.1071 | Acc Treino: 96.74% | Loss Teste: 0.1455 | Acc Teste: 95.47%
+  ✔ Nova melhor acurácia: 95.47% — pesos salvos.
+[ResNet50-MNIST] Época 02/5 | Loss Treino: 0.0673 | Acc Treino: 97.93% | Loss Teste: 0.1045 | Acc Teste: 96.83%
+  ✔ Nova melhor acurácia: 96.83% — pesos salvos.
+[ResNet50-MNIST] Época 03/5 | Loss Treino: 0.0570 | Acc Treino: 98.26% | Loss Teste: 0.1328 | Acc Teste: 96.10%
+  ✘ Sem melhora (1/3). Melhor: 96.83%
+[ResNet50-MNIST] Época 04/5 | Loss Treino: 0.0469 | Acc Treino: 98.52% | Loss Teste: 0.0352 | Acc Teste: 98.91%
+  ✔ Nova melhor acurácia: 98.91% — pesos salvos.
+[ResNet50-MNIST] Época 05/5 | Loss Treino: 0.0391 | Acc Treino: 98.81% | Loss Teste: 0.0285 | Acc Teste: 99.04%
+  ✔ Nova melhor acurácia: 99.04% — pesos salvos.
+Plot salvo em: history_ResNet50_Fine-tuning__MNIST.png
+
+=================================================================
+  EXPERIMENTO 4: ResNet50 (fine-tuning) — CIFAR-10
+=================================================================
+[ResNet50-CIFAR10] Época 01/5 | Loss Treino: 0.6391 | Acc Treino: 78.38% | Loss Teste: 0.7240 | Acc Teste: 76.64%
+  ✔ Nova melhor acurácia: 76.64% — pesos salvos.
+[ResNet50-CIFAR10] Época 02/5 | Loss Treino: 0.4476 | Acc Treino: 84.70% | Loss Teste: 0.4246 | Acc Teste: 85.29%
+  ✔ Nova melhor acurácia: 85.29% — pesos salvos.
+[ResNet50-CIFAR10] Época 03/5 | Loss Treino: 0.3986 | Acc Treino: 86.49% | Loss Teste: 0.4341 | Acc Teste: 84.81%
+  ✘ Sem melhora (1/3). Melhor: 85.29%
+[ResNet50-CIFAR10] Época 04/5 | Loss Treino: 0.3656 | Acc Treino: 87.53% | Loss Teste: 0.3724 | Acc Teste: 88.14%
+  ✔ Nova melhor acurácia: 88.14% — pesos salvos.
+[ResNet50-CIFAR10] Época 05/5 | Loss Treino: 0.3360 | Acc Treino: 88.51% | Loss Teste: 0.3745 | Acc Teste: 87.51%
+  ✘ Sem melhora (1/3). Melhor: 88.14%
+Plot salvo em: history_ResNet50_Fine-tuning__CIFAR-10.png
+
+=================================================================
+  COMPARAÇÃO FINAL DE MODELOS
+=================================================================
+Gráfico de comparação salvo em: comparison_results.png
+
+Modelo                Melhor Acc. Teste
+----------------------------------------
+CNN-MNIST                        99.36%
+CNN-CIFAR10                      68.89%
+ResNet50-MNIST                   99.04%
+ResNet50-CIFAR10                 88.14%
